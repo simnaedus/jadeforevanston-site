@@ -380,11 +380,6 @@ footer.site li { margin-bottom: 8px; }
 .mt-2 { margin-top: 20px; }
 .mt-3 { margin-top: 34px; }
 .narrow { max-width: 760px; margin-left: auto; margin-right: auto; }
-.note-draft {
-  background: #fff8dc; border: 1px dashed var(--gold);
-  color: #6b5a1e; font-size: 0.85rem;
-  padding: 10px 16px; border-radius: 4px; margin: 18px auto 0; max-width: 760px;
-}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
@@ -423,3 +418,7 @@ footer.site li { margin-bottom: 8px; }
   max-width: 1691px;          /* never upscale past the source resolution */
   height: auto; margin: 0 auto;
 }
+
+/* banner sits flush on cream; the PNG background is now #faf4e8.
+   width:100% preserves the footprint the old padded/bordered box occupied. */
+.banner-flush { display:block; width:100%; height:auto; border:0; background:none; padding:0; }
