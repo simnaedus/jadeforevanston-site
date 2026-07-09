@@ -398,12 +398,28 @@ footer.site li { margin-bottom: 8px; }
   .navwrap { flex-direction: column; }
 }
 
-/* ---- coming soon ---- */
-.coming-soon { background: var(--cream); }
-.coming-soon img { display:block; width:100%; height:auto; }
 
 /* ---- forms ---- */
 .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
 .form-status { margin-top:10px; font-size:.92rem; }
 .form-status[data-kind="ok"]   { color:#1f6b3a; font-weight:600; }
 .form-status[data-kind="warn"] { color:#8a5a12; font-weight:600; }
+
+/* ---- coming soon (v2: text is real text, not baked into a raster) ---- */
+.coming-soon { background: var(--cream); padding-top: 56px; text-align: center; }
+.coming-soon .cs-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  line-height: 1.05;
+  color: var(--ink-dark);
+  margin: 0 auto 22px;
+}
+.coming-soon .cs-title::after {
+  content: ""; display: block; width: 240px; height: 3px;
+  background: var(--lavender); margin: 22px auto 0;
+}
+.coming-soon img {
+  display: block; width: 100%;
+  max-width: 1691px;          /* never upscale past the source resolution */
+  height: auto; margin: 0 auto;
+}
