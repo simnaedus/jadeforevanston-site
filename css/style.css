@@ -421,4 +421,8 @@ footer.site li { margin-bottom: 8px; }
 
 /* banner sits flush on cream; the PNG background is now #faf4e8.
    width:100% preserves the footprint the old padded/bordered box occupied. */
+/* Poster art on About: its background is already snapped to --cream, so it must
+   sit flush on the cream band. A radius + drop shadow turned it into a floating
+   card with a visible edge -- exactly what we removed from the home banner. */
+.poster-flush { display:block; width:100%; height:auto; border:0; border-radius:0; box-shadow:none; background:none; }
 .banner-flush { display:block; width:100%; height:auto; border:0; background:none; padding:0; }
