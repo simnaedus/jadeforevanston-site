@@ -230,12 +230,24 @@ section.band.ink h2.section-title { color: var(--cream); }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 
+/* ---------- Brand edge ----------
+   Mirrors the door card's left brand bar (lit/door-card-6x8-*.svg):
+   ink #2b2150 outermost, gold #c9a23c inside it. The card is 26+10px
+   at 300 DPI (2.6:1); scaled to 8px ink + 3px gold on screen.
+   The gold band is an inset shadow because a border can only be one
+   color — it paints from the inner border edge, i.e. x=8..11.
+   Do not raise --edge-gold past --edge-ink; the ink must stay outermost. */
+:root {
+  --edge-ink: 8px;
+  --edge-gold: 3px;
+}
 .card {
   background: var(--white);
   border: 1px solid #e8e0cf;
-  border-top: 4px solid var(--gold);
   border-radius: 4px;
   padding: 26px;
+  border-left: var(--edge-ink) solid var(--ink);
+  box-shadow: inset var(--edge-gold) 0 0 0 var(--gold);
 }
 .card h3 { font-family: var(--serif); color: var(--ink); font-size: 1.2rem; margin-bottom: 10px; }
 .card p { font-size: 0.98rem; color: var(--muted); }
@@ -244,10 +256,11 @@ section.band.ink h2.section-title { color: var(--cream); }
 .issue {
   background: var(--white);
   border: 1px solid #e8e0cf;
-  border-left: 5px solid var(--gold);
   border-radius: 4px;
   padding: 26px 30px;
   margin-bottom: 18px;
+  border-left: var(--edge-ink) solid var(--ink);
+  box-shadow: inset var(--edge-gold) 0 0 0 var(--gold);
 }
 .issue h3 { font-family: var(--serif); color: var(--ink); font-size: 1.3rem; margin-bottom: 8px; }
 
@@ -258,6 +271,8 @@ section.band.ink h2.section-title { color: var(--cream); }
   border-radius: 4px;
   padding: 30px;
   margin-bottom: 22px;
+  border-left: var(--edge-ink) solid var(--ink);
+  box-shadow: inset var(--edge-gold) 0 0 0 var(--gold);
 }
 .news-item .date {
   font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.14em;
@@ -274,9 +289,10 @@ section.band.ink h2.section-title { color: var(--cream); }
 form.campaign {
   background: var(--white);
   border: 1px solid #e8e0cf;
-  border-top: 4px solid var(--gold);
   border-radius: 4px;
   padding: 34px;
+  border-left: var(--edge-ink) solid var(--ink);
+  box-shadow: inset var(--edge-gold) 0 0 0 var(--gold);
 }
 form.campaign .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 form.campaign label {
