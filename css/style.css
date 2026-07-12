@@ -1,5 +1,5 @@
 /* ============================================================
-   Jade Carpenter for Evanston — Campaign Site Stylesheet
+   Jade Carpenter for Evanston: Campaign Site Stylesheet
    Palette drawn from campaign brand assets:
    plum/navy ink, antique gold, warm cream, soft lavender
    ============================================================ */
@@ -235,7 +235,7 @@ section.band.ink h2.section-title { color: var(--cream); }
    ink #2b2150 outermost, gold #c9a23c inside it. The card is 26+10px
    at 300 DPI (2.6:1); scaled to 8px ink + 3px gold on screen.
    The gold band is an inset shadow because a border can only be one
-   color — it paints from the inner border edge, i.e. x=8..11.
+   color; it paints from the inner border edge, i.e. x=8..11.
    Do not raise --edge-gold past --edge-ink; the ink must stay outermost. */
 :root {
   --edge-ink: 8px;
