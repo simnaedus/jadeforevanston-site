@@ -1,5 +1,5 @@
 /*
- * jadeforevanston.com — form submission
+ * jadeforevanston.com form submission
  *
  * Posts brand-styled forms to the Apps Script web app. Progressive enhancement:
  * if JS is off or the endpoint is unreachable, the form falls back to a mailto:
@@ -7,7 +7,7 @@
  *
  * Apps Script web apps don't return CORS headers on POST, so we send
  * Content-Type: text/plain (a "simple request", no preflight) and read the
- * response normally. Do NOT switch to application/json — it triggers a preflight
+ * response normally. Do NOT switch to application/json; it triggers a preflight
  * OPTIONS that Apps Script does not answer, and every submission will fail.
  */
 (function () {
@@ -63,7 +63,7 @@
     var btn = form.querySelector('button[type=submit]');
 
     if (!ENDPOINT) {
-      setStatus(form, 'Form endpoint not configured yet — opening your email client instead.', 'warn');
+      setStatus(form, 'Form endpoint not configured yet; opening your email client instead.', 'warn');
       mailtoFallback(form, data);
       return;
     }
