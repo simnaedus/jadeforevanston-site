@@ -463,7 +463,21 @@ footer.site li { margin-bottom: 8px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
-  .hero-inner { grid-template-columns: 1fr; padding-top: 48px; }
+  /* ---- hero (mobile): portrait sits under the headline, not under the CTAs ----
+     `order` only reorders siblings, and the h1 lives inside .hero-copy while the
+     portrait is its sibling. display:contents dissolves the wrapper so all five
+     pieces become grid items that can be ordered independently. The wrapper is a
+     plain div with no styles or semantics, so dissolving it costs nothing.
+     gap must go to 0 here: the 40px grid gap would otherwise blow the headline,
+     lead and buttons apart now that they're grid items rather than a text block. */
+  .hero-inner { grid-template-columns: 1fr; padding-top: 48px; gap: 0; }
+  .hero-copy { display: contents; }
+  .hero-inner .kicker        { order: 1; }
+  .hero-inner h1             { order: 2; }
+  .hero-inner .hero-portrait { order: 3; padding-top: 0; margin: 6px auto 24px; }
+  .hero-inner p.lead         { order: 4; }
+  .hero-inner .cta-row       { order: 5; }
+
   .hero-portrait { max-width: 340px; margin: 0 auto; }
   .hero .hero-skyline { max-width: 100%; margin-top: -16px; }
   .hero-portrait img { max-width: 300px; }
