@@ -24,6 +24,13 @@
   <meta name="twitter:title" content="Campaign Store | Jade Carpenter for Evanston">
   <meta name="twitter:description" content="Coming soon.">
   <meta name="twitter:image" content="https://jadeforevanston.com/assets/og-card-v3.png">
+<noscript><style>
+  /* JS off: no way to open the menu, so show the plain nav and hide the button. */
+  @media (max-width: 860px) {
+    nav.main { max-height: none; opacity: 1; visibility: visible; overflow: visible; }
+    .navtoggle { display: none; }
+  }
+</style></noscript>
 </head>
 <body>
 
@@ -38,7 +45,8 @@
         <span class="brand-sub">For Evanston</span>
       </span>
     </a>
-    <nav class="main" aria-label="Main navigation">
+    <button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainnav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About Jade</a>
       <a href="issues.html">Priorities</a>
@@ -116,5 +124,6 @@
   </div>
 </footer>
 
+<script src="assets/nav.js" defer></script>
 </body>
 </html>

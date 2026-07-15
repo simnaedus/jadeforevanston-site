@@ -24,6 +24,13 @@
   <meta name="twitter:title" content="Get Involved | Jade Carpenter for Evanston">
   <meta name="twitter:description" content="Knock doors, make calls, host a coffee. Join the campaign.">
   <meta name="twitter:image" content="https://jadeforevanston.com/assets/og-card-v3.png">
+<noscript><style>
+  /* JS off: no way to open the menu, so show the plain nav and hide the button. */
+  @media (max-width: 860px) {
+    nav.main { max-height: none; opacity: 1; visibility: visible; overflow: visible; }
+    .navtoggle { display: none; }
+  }
+</style></noscript>
 </head>
 <body>
 
@@ -38,7 +45,8 @@
         <span class="brand-sub">For Evanston</span>
       </span>
     </a>
-    <nav class="main" aria-label="Main navigation">
+    <button class="navtoggle" id="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button>
+    <nav class="main" id="mainnav" aria-label="Main navigation">
       <a href="index.html">Home</a>
       <a href="about.html">About Jade</a>
       <a href="issues.html">Priorities</a>
@@ -61,10 +69,10 @@
 
 <section class="band cream" id="signup">
   <div class="container grid-2" style="align-items:start;">
-    <div>
+    <div class="col-updates">
       <div class="kicker">Stay in the Loop</div>
       <h2 class="section-title">Sign up for updates</h2>
-      <form class="campaign" id="signup" data-form="signup">
+      <form class="campaign" id="signup-form" data-form="signup">
         <label for="s-name">Full Name</label>
         <input type="text" id="s-name" name="name" autocomplete="name" required>
         <label for="s-email">Email</label>
@@ -82,7 +90,7 @@
         <p class="form-note">By signing up you agree to receive campaign emails. Unsubscribe any time. See our <a href="privacy.html">privacy notice</a>.</p>
       </form>
     </div>
-    <div>
+    <div class="col-volunteer">
       <div class="kicker">Roll Up Your Sleeves</div>
       <h2 class="section-title">Volunteer with us</h2>
       <form class="campaign" id="volunteer" data-form="volunteer">
@@ -183,5 +191,6 @@
   window.JFE_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycby4kzAp1HWpDJNojlPnpvCKuUCNiwrfPQZ_QvHQhqTR4R5HGpxdWL8LThlVq0ANEfoV/exec";
 </script>
 <script src="assets/forms.js" defer></script>
+<script src="assets/nav.js" defer></script>
 </body>
 </html>

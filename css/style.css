@@ -108,6 +108,37 @@ nav.main a.donate {
 }
 nav.main a.donate:hover { background: var(--gold-soft); }
 
+/* ---------- Mobile nav toggle ----------
+   Hidden entirely on desktop; revealed below 860px. The menu collapses in CSS
+   (not via JS) so there is no flash of an open nav on load. Visitors with JS
+   disabled get the plain expanded nav via the <noscript> block in each page. */
+.navtoggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;            /* 44px = comfortable tap target */
+  height: 44px;
+  padding: 10px;
+  background: none;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.navtoggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .28s ease, opacity .2s ease;
+}
+.navtoggle:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+/* bars fold into an X when open (gap 5 + height 2 => 7px centre-to-centre) */
+.navtoggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navtoggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.navtoggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -442,7 +473,51 @@ footer.site li { margin-bottom: 8px; }
   footer.site .cols { grid-template-columns: 1fr; }
   form.campaign .row { grid-template-columns: 1fr; }
   .checks { grid-template-columns: 1fr; }
-  .navwrap { flex-direction: column; }
+
+  /* ---- header: brand + hamburger share one row; nav drops beneath ---- */
+  .navwrap { flex-wrap: wrap; padding: 10px 18px; }
+.navtoggle { display: flex; }
+
+nav.main {
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;          /* keeps closed links out of the tab order */
+    overflow: hidden;
+    transition: max-height .32s ease, opacity .24s ease, visibility 0s linear .32s;
+  }
+nav.main.open {
+    max-height: 620px;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height .32s ease, opacity .24s ease, visibility 0s;
+  }
+nav.main a {
+    font-size: 1rem;
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(43, 33, 80, .10);   /* hairline divider */
+  }
+nav.main a:hover { border-bottom-color: rgba(43, 33, 80, .10); }
+  /* current page carries the campaign's gold edge, echoing the card treatment */
+nav.main a.active {
+    border-bottom-color: rgba(43, 33, 80, .10);
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
+  }
+nav.main a.donate {
+    margin: 14px 0 6px;
+    padding: 14px;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  /* Candidate request (mobile only): volunteer form sits above sign-up. */
+  .col-volunteer { order: -1; }
 }
 
 
