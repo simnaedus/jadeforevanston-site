@@ -7,7 +7,7 @@
 <meta name="description" content="How the Jade Carpenter for Mayor campaign collects, uses, and protects your information.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 <link rel="icon" type="image/png" href="assets/emblem-circle-v1.png">
   <link rel="canonical" href="https://jadeforevanston.com/privacy.html">
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -69,12 +69,27 @@
 
 <section class="container narrow">
   <h2 class="section-title">What we collect</h2>
-  <p>When you fill out a form on this site, we collect only what you type into it:</p>
+  <p>When you fill out a form on this site, we collect what you type into it:</p>
   <ul>
     <li><strong>Email signup:</strong> your name, email address, and ZIP code.</li>
     <li><strong>Volunteer form:</strong> your name, email address, phone number (optional),
         ward, how you&rsquo;d like to help, and anything you write in the notes field.</li>
   </ul>
+  <p>Along with your submission, we also save <strong>one campaign tag</strong> recording
+     which of our own links brought you here &mdash; for example a yard sign, a QR code on a
+     flyer, or a specific social post. We do this so we can tell which of our outreach
+     efforts actually reach people, and stop paying for the ones that don&rsquo;t. The tag is
+     a label we put on our own links (like <code>yardsign-a</code>); it says nothing about
+     you, and if you arrived without one, nothing is recorded.</p>
+  <p>To remember that tag while you move between pages, we store it in your
+     browser&rsquo;s <strong>session storage</strong>. That is not a cookie: it stays on this
+     site, is never sent anywhere except with a form you choose to submit, and your browser
+     erases it when you close the tab.</p>
+  <p>If you follow a donate link, we pass that same tag to ActBlue as a
+     &ldquo;refcode&rdquo; so we can see which outreach led to support.
+     <strong>Donations are handled entirely by ActBlue</strong> under
+     <a href="https://secure.actblue.com/privacy" target="_blank" rel="noopener">their privacy
+     policy</a>; we never see or store your payment information.</p>
   <p>We do not use advertising trackers, and we do not run analytics that profile you
      across other websites. For the basic, privacy-preserving traffic measurement we do use,
      see &ldquo;Website analytics&rdquo; below.</p>
@@ -184,6 +199,7 @@
   </div>
 </footer>
 
-<script src="assets/nav.js?v=2" defer></script>
+<script src="assets/attrib.js?v=3" defer></script>
+<script src="assets/nav.js?v=3" defer></script>
 </body>
 </html>

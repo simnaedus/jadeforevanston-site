@@ -16,8 +16,18 @@
   // Set this after deploying Code.gs. See forms-backend/DEPLOY.md.
   var ENDPOINT = window.JFE_FORM_ENDPOINT || '';
 
+  // The campaign tag is owned by assets/attrib.js (loaded on every page, because
+  // donate links are on every page). Do NOT re-derive it here: two copies would
+  // drift and the dashboard's conversion rate would go quietly wrong.
+  function currentSrc() {
+    try { return (typeof window.JFE_SRC === 'function') ? window.JFE_SRC() : ''; }
+    catch (e) { return ''; }
+  }
+
   function serialize(form) {
     var out = { form: form.dataset.form };
+    var s = currentSrc();
+    if (s) out.src = s;
     var checks = {};
     Array.prototype.forEach.call(form.elements, function (el) {
       if (!el.name || el.disabled) return;
