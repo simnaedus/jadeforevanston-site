@@ -261,6 +261,26 @@ section.band.ink h2.section-title { color: var(--cream); }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 
+/* Odd card count: centre the last card instead of leaving a hole in the right column.
+   Width matches a normal column: columns are (100% - 40px gap) / 2 = 50% - 20px.
+
+   ⚠️ DORMANT AS OF 2026-07-16 — The Work Ahead grid currently holds FOUR planks
+   (Listen first / Housing, done right / Balance, not division / A real partnership), so
+   this rule does not fire. It is kept deliberately: the plank list changed twice in one
+   day (Education was cut, Balance added back), and the next time it lands on an odd
+   number the grid should degrade gracefully instead of showing a lopsided hole.
+   The four planks deliberately match the door card and door hanger exactly, so a voter
+   who takes a card at the door sees the same four things here. If you change the planks,
+   change lit/door-card-6x8-*.svg and lit/door-hanger-4.25x11-*.svg in the same commit.
+
+   ⚠️ Reset in the ≤860px block — there the grid is a single column and a half-width
+   card would look broken. (Verified by forcing the breakpoint on: full-width, x-aligned.) */
+.grid-2 > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 20px);
+  margin-inline: auto;
+}
+
 /* ---------- Brand edge ----------
    Mirrors the door card's left brand bar (lit/door-card-6x8-*.svg):
    ink #2b2150 outermost, gold #c9a23c inside it. The card is 26+10px
@@ -484,6 +504,9 @@ footer.site li { margin-bottom: 8px; }
 
   .grid-3 { grid-template-columns: 1fr; }
   .grid-2 { grid-template-columns: 1fr; }
+  /* Single column here — undo the centred-orphan width or the last card renders
+     at half width on phones. */
+  .grid-2 > :last-child:nth-child(odd) { width: auto; margin-inline: 0; }
   footer.site .cols { grid-template-columns: 1fr; }
   form.campaign .row { grid-template-columns: 1fr; }
   .checks { grid-template-columns: 1fr; }
